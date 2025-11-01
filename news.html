@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости - Автопрокат</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        header {
+            border-bottom: 2px solid #ff6b35;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 30px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: #ff6b35;
+                font-weight: 600;
+                padding: 10px 20px;
+                border-radius: 25px;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+            }
+
+                nav a:hover {
+                    background-color: #ff6b35;
+                    color: white;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+                }
+
+                nav a.active {
+                    background-color: #ff6b35;
+                    color: white;
+                    border-color: #ff8c42;
+                }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+            .news-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            }
+
+        .news-date {
+            color: #ff6b35;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .news-title {
+            color: #333;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .news-content {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+            .read-more-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="news.html" class="active">Новости</a></li>
+                    <li><a href="register.html">Регистрация</a></li>
+                </ul>
+            </nav>
+            <h1>Новости автопроката</h1>
+        </header>
+
+        <main>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">15 марта 2024</div>
+                    <h3 class="news-title">Новые автомобили в нашем парке</h3>
+                    <p class="news-content">Мы обновили наш автопарк! Теперь доступны новые модели BMW X5, Mercedes E-Class и Audi A6 с полным комплектом опций.</p>
+                    <a href="#" class="read-more-btn">Подробнее</a>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-date">12 марта 2024</div>
+                    <h3 class="news-title">Расширение зоны обслуживания</h3>
+                    <p class="news-content">Теперь мы работаем в 5 новых городах! Забирайте и возвращайте автомобили в любом из 25 пунктов проката по стране.</p>
+                    <a href="#" class="read-more-btn">Подробнее</a>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-date">8 марта 2024</div>
+                    <h3 class="news-title">Бесплатная отмена бронирования</h3>
+                    <p class="news-content">Ввели новую опцию - бесплатная отмена бронирования за 24 часа до начала аренды. Больше гибкости для наших клиентов!</p>
+                    <a href="#" class="read-more-btn">Подробнее</a>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-date">5 марта 2024</div>
+                    <h3 class="news-title">Сезонные скидки на внедорожники</h3>
+                    <p class="news-content">Готовьтесь к летнему сезону! Скидки до 20% на аренду внедорожников и кроссоверов для путешествий по стране.</p>
+                    <a href="#" class="read-more-btn">Подробнее</a>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-date">1 марта 2024</div>
+                    <h3 class="news-title">Премиум-сервис для бизнес-клиентов</h3>
+                    <p class="news-content">Запустили специальную программу для корпоративных клиентов с индивидуальными тарифами и приоритетным обслуживанием.</p>
+                    <a href="#" class="read-more-btn">Подробнее</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Автопрокат. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>

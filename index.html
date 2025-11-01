@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Технопортал</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        header {
+            border-bottom: 2px solid #ff6b35;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 30px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: #ff6b35;
+                font-weight: 600;
+                padding: 10px 20px;
+                border-radius: 25px;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+            }
+
+                nav a:hover {
+                    background-color: #ff6b35;
+                    color: white;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+                }
+
+                nav a.active {
+                    background-color: #ff6b35;
+                    color: white;
+                    border-color: #ff8c42;
+                }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .date-time {
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .date-author {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .content {
+            margin-bottom: 30px;
+        }
+
+            .content p {
+                margin-bottom: 20px;
+                text-align: justify;
+                color: #555;
+            }
+
+            .content a {
+                color: #ff6b35;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s ease;
+            }
+
+                .content a:hover {
+                    color: #764ba2;
+                    text-decoration: underline;
+                }
+
+        .last-updated {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #ddd;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .read-more {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+            .read-more a {
+                color: white;
+                background: linear-gradient(135deg, #ff6b35, #ff8c42);
+                padding: 12px 30px;
+                border-radius: 25px;
+                font-weight: bold;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                display: inline-block;
+            }
+
+                .read-more a:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+                }
+
+        .community-portal {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #ff6b35;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+            .community-portal h2 {
+                margin-bottom: 20px;
+                color: #333;
+                text-align: center;
+            }
+
+        .headings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+            .headings h3, .headings h4, .headings h5 {
+                margin-bottom: 10px;
+                color: #333;
+                padding: 15px;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: #ff6b35;
+        }
+
+        h4 {
+            font-size: 1.1em;
+            color: #764ba2;
+        }
+
+        h5 {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .tech-heading {
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #ff6b35;
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="register.html">Регистрация</a></li>
+                </ul>
+            </nav>
+            <h1>Автопрокат</h1>
+            <div class="date-time" id="currentDateTime">
+                <!-- Дата и время будут вставлены через JavaScript -->
+            </div>
+        </header>
+
+        <main>
+            <section class="content">
+                <p class="date-author">23 сентября 2024 г. | Автор: Администратор</p>
+
+                <p class="tech-heading">Арендуйте автомобили на любой вкус и бюджет!</p>
+
+                <p>Добро пожаловать в автопрокат "Скорость"! Мы предлагаем широкий выбор автомобилей от эконом-класса до премиум-сегмента. <a href="#">Наш автопарк</a> включает в себя <a href="#">современные модели</a> с полным техническим обслуживанием.</p>
+
+                <p>Арендуйте автомобиль для деловой поездки, семейного отдыха или особого мероприятия. Мы гарантируем чистоту, исправность и своевременное обслуживание каждого автомобиля. Все наши машины застрахованы и проходят регулярный технический осмотр.</p>
+
+                <p>Станьте постоянным клиентом сегодня! Зарегистрируйтесь на сайте, чтобы получить скидку 10% на первую аренду, доступ к специальным предложениям и приоритетное бронирование.</p>
+
+                
+
+            <div class="read-more">
+                <a href="news.html">Узнать о специальных предложениях...</a>
+            </div>
+
+            <section class="community-portal">
+                <h2>Портал сообщества</h2>
+                <p class="date-author">5 ноября 2024 г. | Автор: Администратор</p>
+
+                <div class="headings">
+                    <h3>Эконом-класс</h3>
+                    <h4>Бизнес-класс</h4>
+                    <h5>Премиум-класс</h5>
+                    <h5>Внедорожники</h5>
+                    <h5>Минивэны</h5>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Автопрокат. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            const dateTimeString = now.toLocaleDateString('ru-RU', options);
+            document.getElementById('currentDateTime').textContent = dateTimeString;
+        }
+
+        // Обновляем время сразу при загрузке
+        updateDateTime();
+
+        // Обновляем время каждую секунду
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>

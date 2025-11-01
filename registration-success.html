@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация успешна - Технопортал</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4em;
+            color: ff6b35;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #333;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .user-data {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: left;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .data-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .data-label {
+            font-weight: 600;
+            color: #ff6b35;
+        }
+
+        .data-value {
+            color: #555;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9em;
+            .discount-badge
+
+        {
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">🚗</div>
+        <h1>Регистрация успешно завершена!</h1>
+
+        <div class="discount-badge">
+            Ваша скидка 10% на первую аренду активирована!
+        </div>
+
+        <p>Спасибо за регистрацию в автопрокате "Скорость". Ваши данные:</p>
+
+        <div class="user-data" id="userDataDisplay">
+            <!-- Данные пользователя будут отображены здесь -->
+        </div>
+
+        <p>На ваш email отправлено подтверждение регистрации и промокод на скидку.</p>
+
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-primary">На главную</a>
+            <a href="news.html" class="btn btn-secondary">Посмотреть автомобили</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Автопрокат "Скорость". Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            const displayElement = document.getElementById('userDataDisplay');
+
+            if (userData) {
+                const countryNames = {
+                    'ru': 'Россия',
+                    'kz': 'Казахстан',
+                    'by': 'Беларусь',
+                    'ua': 'Украина',
+                    'other': 'Другая'
+                };
+
+                const carTypes = {
+                    'economy': 'Эконом-класс',
+                    'business': 'Бизнес-класс',
+                    'premium': 'Премиум-класс',
+                    'suv': 'Внедорожник',
+                    'minivan': 'Минивэн'
+                };
+
+                displayElement.innerHTML = `
+                        <div class="data-item">
+                            <span class="data-label">Полное имя:</span>
+                            <span class="data-value">${userData.fullName}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Email:</span>
+                            <span class="data-value">${userData.email}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Телефон:</span>
+                            <span class="data-value">${userData.phone}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Дата рождения:</span>
+                            <span class="data-value">${new Date(userData.birthDate).toLocaleDateString('ru-RU')}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Страна:</span>
+                            <span class="data-value">${countryNames[userData.country] || userData.country}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Водительское удостоверение:</span>
+                            <span class="data-value">${userData.licenseNumber}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Предпочитаемый тип авто:</span>
+                            <span class="data-value">${carTypes[userData.preferredCarType] || 'Не указан'}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Дополнительные пожелания:</span>
+                            <span class="data-value">${userData.interests || 'Не указаны'}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="data-label">Спецпредложения:</span>
+                            <span class="data-value">${userData.newsletter ? 'Подписан' : 'Не подписан'}</span>
+                        </div>
+                    `;
+            } else {
+                displayElement.innerHTML = '<p>Данные не найдены. Пожалуйста, пройдите регистрацию заново.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

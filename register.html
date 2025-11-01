@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация Автопрокат "Скорость"</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-radius: 20px;
+        }
+
+        nav {
+            margin-bottom: 30px;
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: #ff6b35;
+                font-weight: 600;
+                padding: 8px 16px;
+                border-radius: 20px;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+                font-size: 0.9em;
+            }
+
+                nav a:hover {
+                    background-color: #ff6b35;
+                    color: white;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+                }
+
+                nav a.active {
+                    background-color: #ff6b35;
+                    color: white;
+                    border-color: #ff8c42;
+                }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+            input:focus, select:focus, textarea:focus {
+                outline: none;
+                border-color: #ff6b35;
+                background-color: white;
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .checkbox-group input {
+                width: auto;
+            }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+            .submit-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+            .login-link a {
+                color: #ff6b35;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+                .login-link a:hover {
+                    text-decoration: underline;
+                }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="register.html" class="active">Регистрация</a></li>
+            </ul>
+        </nav>
+
+        <h1>Регистрация</h1>
+
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fullName">Полное имя:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Подтвердите пароль:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <div class="form-group">
+                <label for="birthDate">Дата рождения:</label>
+                <input type="date" id="birthDate" name="birthDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Страна:</label>
+                <select id="country" name="country" required>
+                    <option value="">Выберите страну</option>
+                    <option value="ru">Россия</option>
+                    <option value="kz">Казахстан</option>
+                    <option value="by">Беларусь</option>
+                    <option value="ua">Украина</option>
+                    <option value="other">Другая</option>
+                </select>
+            </div>
+
+          
+
+            <div class="form-group">
+                <label for="preferredCarType">Предпочитаемый тип автомобиля:</label>
+                <select id="preferredCarType" name="preferredCarType">
+                    <option value="">Выберите тип</option>
+                    <option value="economy">Эконом-класс</option>
+                    <option value="business">Бизнес-класс</option>
+                    <option value="premium">Премиум-класс</option>
+                    <option value="suv">Внедорожник</option>
+                    <option value="minivan">Минивэн</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="interests">Дополнительные пожелания:</label>
+                <textarea id="interests" name="interests" placeholder="Укажите дополнительные требования к аренде автомобиля..."></textarea>
+            </div>
+
+        
+
+            <button type="submit" class="submit-btn">Зарегистрироваться</button>
+        </form>
+
+       
+
+        <footer>
+            <p>&copy; 2024 Автопрокат "Скорость". Все права защищены.</p>
+        </footer>
+    </div>
+
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Пароли не совпадают!');
+                return;
+            }
+
+            
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                birthDate: document.getElementById('birthDate').value,
+                country: document.getElementById('country').value,
+                
+            };
+
+            
+            localStorage.setItem('userData', JSON.stringify(formData));
+
+            
+            window.location.href = 'registration-success.html';
+        });
+
+        
+        const today = new Date();
+        const minDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+        document.getElementById('birthDate').max = minDate.toISOString().split('T')[0];
+    </script>
+</body>
+</html>
